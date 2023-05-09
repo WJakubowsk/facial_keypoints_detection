@@ -3,9 +3,9 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from typing import Tuple
 
-def get_image_and_keypoints_from_raw_observation(series: pd.Series, preprocess: bool = False) -> Tuple[np.array, np.array]:
+def get_image_and_keypoints_from_observation(series: pd.Series, preprocess: bool = False) -> Tuple[np.array, np.array]:
     """
-    Returns tuple of two np.arrays from raw observation:
+    Returns tuple of two np.arrays from observation:
         - 96x96 pixels image
         - array of facial keypoints' coordinates
     """
@@ -22,6 +22,7 @@ def show_image_with_keypoints(image: np.array, keypoints: np.array):
     plt.imshow(image, cmap='gray')
     plt.plot(keypoints[:, 0], keypoints[:, 1], 'ro')
     plt.axis("off")
+    plt.show()
 
 def visualize_duplicates(df: pd.DataFrame, n_pictures: int = 5):
     """
@@ -33,7 +34,7 @@ def visualize_duplicates(df: pd.DataFrame, n_pictures: int = 5):
         fig = plt.figure(figsize=(5, 5*n_rows))
         i = 1
         for index, row in df_duplicates.iterrows():        
-            image, keypoints = get_image_and_keypoints_from_raw_observation(row, preprocess = True)
+            image, keypoints = get_image_and_keypoints_from_observation(row, preprocess = True)
             fig.add_subplot(1, n_rows, i)
             plt.imshow(image, cmap='gray')
             plt.plot(keypoints[:,0], keypoints[:,1], 'ro')
