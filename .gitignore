@@ -138,5 +138,7 @@ dmypy.json
 .idea
 
 # Datsets
-
 /data
+
+# Model checkpoints
+/model_checkpoints
