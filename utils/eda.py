@@ -20,7 +20,7 @@ def show_image_with_keypoints(image: np.array, keypoints: np.array):
     Plots the image with marked facial keypoints given preprocessed image and keypoints from get_image_and_keypoints_from_raw_observation function
     """
     plt.imshow(image, cmap='gray')
-    plt.plot(keypoints[:, 0], keypoints[:, 1], 'ro')
+    plt.plot(keypoints[:, 0], keypoints[:, 1], 'wo')
     plt.axis("off")
     plt.show()
 
@@ -41,4 +41,3 @@ def visualize_duplicates(df: pd.DataFrame, n_pictures: int = 5):
             plt.axis("off")
             i+=1 
         plt.show()
-
